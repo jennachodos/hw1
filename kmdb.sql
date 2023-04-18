@@ -105,7 +105,7 @@
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 DROP TABLE IF EXISTS movies;
-DROP TABLE IF EXISTS actors;
+DROP TABLE IF EXISTS leading_actors;
 
 -- Create new tables, according to your domain model
 CREATE TABLE movies (
@@ -116,7 +116,7 @@ CREATE TABLE movies (
     studio_name TEXT
 );
 
-CREATE TABLE actors (
+CREATE TABLE leading_actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     actor_name TEXT,
     character_name TEXT,
@@ -128,7 +128,7 @@ CREATE TABLE actors (
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 
-INSERT INTO actors (
+INSERT INTO leading_actors (
     actor_name,
     character_name,
     movie_id
@@ -140,11 +140,23 @@ VALUES(
     1
 );
 
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
+
 VALUES(
     "Michael Caine",
     "Alfred",
     1
 );
+
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
 
 VALUES (
     "Liam Neeson",
@@ -152,23 +164,46 @@ VALUES (
     1
 );
 
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
+
 VALUES (
     "Katie Holmes",
     "Rachel Dawes",
     1
 );
 
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
 VALUES (
     "Gary Oldman",
     "Commisoner Gordon",
     1
 );
 
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
+
 VALUES (
     "Christian Bale",
     "Bruce Wayne",
     2
 );
+
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
 
 VALUES (
     "Heath Ledger",
@@ -176,11 +211,23 @@ VALUES (
     2
 );
 
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
+
 VALUES (
     "Aaron Eckhart",
     "Harvey Dent",
     2
 );
+
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
 
 VALUES (
     "Michael Caine",
@@ -188,11 +235,23 @@ VALUES (
     2
 );
 
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
+
 VALUES (
     "Maggie Gyllenhaal",
     "Rachel Dawes",
     2
 );
+
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
 
 VALUES (
     "Christian Bale",
@@ -200,11 +259,23 @@ VALUES (
     3
 );
 
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
+
 VALUES (
     "Gary Oldman",
     "Commisioner Gordon",
     3
 );
+
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
 
 VALUES (
     "Tom Hardy",
@@ -212,11 +283,23 @@ VALUES (
     3
 );
 
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
+
 VALUES (
     "Joseph Gordon-Levitt",
     "John Blake",
     3
 );
+
+INSERT INTO leading_actors (
+    actor_name,
+    character_name,
+    movie_id
+)
 
 VALUES (
     "Anne Hathaway",
@@ -238,12 +321,24 @@ VALUES (
     "Warner Bros."
 );
 
+INSERT INTO movies (
+    title,
+    year,
+    rating,
+    studio_name
+) 
 VALUES (
     "The Dark Knight",
     2008,
     "PG-13",
     "Warner Bros."
 );
+INSERT INTO movies (
+    title,
+    year,
+    rating,
+    studio_name
+)
 
 VALUES (
     "The Dark Knight Rises",
@@ -271,6 +366,8 @@ FROM movies;
 
 
 -- The SQL statement for the cast output
--- TO DO 
+SELECT movies.title, leading_actors.actor_name, leading_actors.character_name
+FROM movies INNER JOIN leading_actors ON movies.id = leading_actors.movie_id
+;
 
 
