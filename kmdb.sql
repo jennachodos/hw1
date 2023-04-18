@@ -128,6 +128,7 @@ CREATE TABLE leading_actors (
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 
+--Add actor info below
 INSERT INTO leading_actors (
     actor_name,
     character_name,
@@ -320,6 +321,8 @@ VALUES (
     "PG-13",
     "Warner Bros."
 );
+
+-- add movie info below
 
 INSERT INTO movies (
     title,
