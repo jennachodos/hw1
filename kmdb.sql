@@ -105,7 +105,6 @@
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 DROP TABLE IF EXISTS movies;
-DROP TABLE IF EXISTS studios;
 DROP TABLE IF EXISTS actors;
 
 -- Create new tables, according to your domain model
@@ -113,21 +112,145 @@ CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT,
     year INTEGER,
-    MPAA TEXT,
-    studio_name TEXT,
-    movie_id INTEGER,
-
+    rating TEXT,
+    studio_name TEXT
 );
 
 CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    actor_id INTEGER,
-    name TEXT,
-    movie_id INTEGER,
-)
+    actor_name TEXT,
+    character_name TEXT,
+    movie_id INTEGER
+);
+
+
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
+
+INSERT INTO actors (
+    actor_name,
+    character_name,
+    movie_id
+)
+
+VALUES(
+    "Christian Bale",
+    "Bruce Wayne",
+    1
+);
+
+VALUES(
+    "Michael Caine",
+    "Alfred",
+    1
+);
+
+VALUES (
+    "Liam Neeson",
+    "Ra's Al Ghul",
+    1
+);
+
+VALUES (
+    "Katie Holmes",
+    "Rachel Dawes",
+    1
+);
+
+VALUES (
+    "Gary Oldman",
+    "Commisoner Gordon",
+    1
+);
+
+VALUES (
+    "Christian Bale",
+    "Bruce Wayne",
+    2
+);
+
+VALUES (
+    "Heath Ledger",
+    "Joker",
+    2
+);
+
+VALUES (
+    "Aaron Eckhart",
+    "Harvey Dent",
+    2
+);
+
+VALUES (
+    "Michael Caine",
+    "Alfred",
+    2
+);
+
+VALUES (
+    "Maggie Gyllenhaal",
+    "Rachel Dawes",
+    2
+);
+
+VALUES (
+    "Christian Bale",
+    "Bruce Wayne",
+    3
+);
+
+VALUES (
+    "Gary Oldman",
+    "Commisioner Gordon",
+    3
+);
+
+VALUES (
+    "Tom Hardy",
+    "Bane",
+    3
+);
+
+VALUES (
+    "Joseph Gordon-Levitt",
+    "John Blake",
+    3
+);
+
+VALUES (
+    "Anne Hathaway",
+    "Selina Kyle",
+    3
+);
+
+INSERT INTO movies (
+    title,
+    year,
+    rating,
+    studio_name
+)
+
+VALUES (
+    "Batman Begins",
+    2005,
+    "PG-13",
+    "Warner Bros."
+);
+
+VALUES (
+    "The Dark Knight",
+    2008,
+    "PG-13",
+    "Warner Bros."
+);
+
+VALUES (
+    "The Dark Knight Rises",
+    2012,
+    "PG-13",
+    "Warner Bros."
+);
 
 
 -- Prints a header for the movies output
@@ -136,7 +259,9 @@ CREATE TABLE actors (
 .print ""
 
 -- The SQL statement for the movies output
--- TODO!
+SELECT title, year, rating, studio_name
+FROM movies;
+
 
 -- Prints a header for the cast output
 .print ""
@@ -146,6 +271,6 @@ CREATE TABLE actors (
 
 
 -- The SQL statement for the cast output
--- TODO!
+-- TO DO 
 
 
